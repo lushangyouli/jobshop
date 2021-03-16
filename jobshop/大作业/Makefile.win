@@ -1,0 +1,40 @@
+# Project: 项目1
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe -D__DEBUG__ -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__ -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = main.o input.o usefunction.o output.o heredity.o
+LINKOBJ  = main.o input.o usefunction.o output.o heredity.o
+LIBS     = -L"C:/零时/learn/计导/dev c++/Dev-Cpp/MinGW64/lib" -L"C:/零时/learn/计导/dev c++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -g3
+INCS     = -I"C:/零时/learn/计导/dev c++/Dev-Cpp/MinGW64/include" -I"C:/零时/learn/计导/dev c++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/零时/learn/计导/dev c++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/零时/learn/计导/dev c++/Dev-Cpp/MinGW64/include" -I"C:/零时/learn/计导/dev c++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/零时/learn/计导/dev c++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/零时/learn/计导/dev c++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = 1-4+17班12.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+input.o: input.c
+	$(CC) -c input.c -o input.o $(CFLAGS)
+
+usefunction.o: usefunction.c
+	$(CC) -c usefunction.c -o usefunction.o $(CFLAGS)
+
+output.o: output.c
+	$(CC) -c output.c -o output.o $(CFLAGS)
+
+heredity.o: heredity.c
+	$(CC) -c heredity.c -o heredity.o $(CFLAGS)
